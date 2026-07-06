@@ -1,0 +1,208 @@
+{
+  "accuracy": 0.9978,
+  "batch_size": 256,
+  "checkpoint": "final/checkpoint_best_val.pt",
+  "checkpoint_metrics": {
+    "elapsed_s": 240.56089254212566,
+    "exact_accuracy": 0.996,
+    "step": 2000.0,
+    "train_loss": 0.8637006878852844,
+    "val_loss": 0.8584643304347992
+  },
+  "checkpoint_step": 2000,
+  "correct": 9978,
+  "digit_length": 2,
+  "errors": [
+    {
+      "a": 0,
+      "answer": "7",
+      "b": 8,
+      "expected": "8",
+      "generated": "0+8=7\n",
+      "prompt": "0+8="
+    },
+    {
+      "a": 1,
+      "answer": "9",
+      "b": 7,
+      "expected": "8",
+      "generated": "1+7=9\n",
+      "prompt": "1+7="
+    },
+    {
+      "a": 1,
+      "answer": "1",
+      "b": 8,
+      "expected": "9",
+      "generated": "1+8=1\n",
+      "prompt": "1+8="
+    },
+    {
+      "a": 2,
+      "answer": "9",
+      "b": 6,
+      "expected": "8",
+      "generated": "2+6=9\n",
+      "prompt": "2+6="
+    },
+    {
+      "a": 2,
+      "answer": "10",
+      "b": 7,
+      "expected": "9",
+      "generated": "2+7=10\n",
+      "prompt": "2+7="
+    },
+    {
+      "a": 2,
+      "answer": "10",
+      "b": 9,
+      "expected": "11",
+      "generated": "2+9=10\n",
+      "prompt": "2+9="
+    },
+    {
+      "a": 3,
+      "answer": "8",
+      "b": 4,
+      "expected": "7",
+      "generated": "3+4=8\n",
+      "prompt": "3+4="
+    },
+    {
+      "a": 3,
+      "answer": "9",
+      "b": 5,
+      "expected": "8",
+      "generated": "3+5=9\n",
+      "prompt": "3+5="
+    },
+    {
+      "a": 3,
+      "answer": "10",
+      "b": 6,
+      "expected": "9",
+      "generated": "3+6=10\n",
+      "prompt": "3+6="
+    },
+    {
+      "a": 4,
+      "answer": "9",
+      "b": 4,
+      "expected": "8",
+      "generated": "4+4=9\n",
+      "prompt": "4+4="
+    },
+    {
+      "a": 4,
+      "answer": "10",
+      "b": 5,
+      "expected": "9",
+      "generated": "4+5=10\n",
+      "prompt": "4+5="
+    },
+    {
+      "a": 4,
+      "answer": "11",
+      "b": 6,
+      "expected": "10",
+      "generated": "4+6=11\n",
+      "prompt": "4+6="
+    },
+    {
+      "a": 4,
+      "answer": "12",
+      "b": 7,
+      "expected": "11",
+      "generated": "4+7=12\n",
+      "prompt": "4+7="
+    },
+    {
+      "a": 5,
+      "answer": "11",
+      "b": 5,
+      "expected": "10",
+      "generated": "5+5=11\n",
+      "prompt": "5+5="
+    },
+    {
+      "a": 5,
+      "answer": "12",
+      "b": 6,
+      "expected": "11",
+      "generated": "5+6=12\n",
+      "prompt": "5+6="
+    },
+    {
+      "a": 6,
+      "answer": "11",
+      "b": 4,
+      "expected": "10",
+      "generated": "6+4=11\n",
+      "prompt": "6+4="
+    },
+    {
+      "a": 8,
+      "answer": "14",
+      "b": 7,
+      "expected": "15",
+      "generated": "8+7=14\n",
+      "prompt": "8+7="
+    },
+    {
+      "a": 9,
+      "answer": "25",
+      "b": 26,
+      "expected": "35",
+      "generated": "9+26=25\n",
+      "prompt": "9+26="
+    },
+    {
+      "a": 10,
+      "answer": "17",
+      "b": 8,
+      "expected": "18",
+      "generated": "10+8=17\n",
+      "prompt": "10+8="
+    },
+    {
+      "a": 42,
+      "answer": "51",
+      "b": 8,
+      "expected": "50",
+      "generated": "42+8=51\n",
+      "prompt": "42+8="
+    },
+    {
+      "a": 59,
+      "answer": "67",
+      "b": 9,
+      "expected": "68",
+      "generated": "59+9=67\n",
+      "prompt": "59+9="
+    },
+    {
+      "a": 92,
+      "answer": "132",
+      "b": 41,
+      "expected": "133",
+      "generated": "92+41=132\n",
+      "prompt": "92+41="
+    }
+  ],
+  "incorrect": 22,
+  "model_config": {
+    "context_length": 16,
+    "d_model": 128,
+    "ffn_hidden": 512,
+    "num_heads": 4,
+    "num_layers": 6,
+    "vocab_size": 14
+  },
+  "parameter_count": 1188736,
+  "range": [
+    0,
+    99
+  ],
+  "total": 10000
+}

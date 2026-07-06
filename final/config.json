@@ -1,0 +1,48 @@
+{
+  "device": "mps",
+  "experiment": {
+    "accuracy_examples": 500,
+    "batch_size": 64,
+    "context_length": 16,
+    "d_model": 128,
+    "device": "auto",
+    "digit_length": 2,
+    "eval_interval": 250,
+    "ffn_hidden": 512,
+    "grad_clip": 1.0,
+    "learning_rate": 0.001,
+    "num_heads": 4,
+    "num_layers": 6,
+    "samples": 8,
+    "seed": 1337,
+    "stage": "stage4",
+    "steps": 2000,
+    "val_batches": 8,
+    "weight_decay": 0.01
+  },
+  "model": {
+    "context_length": 16,
+    "d_model": 128,
+    "ffn_hidden": 512,
+    "num_heads": 4,
+    "num_layers": 6,
+    "vocab_size": 14
+  },
+  "parameter_count": 1188736,
+  "vocab": [
+    "<pad>",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "+",
+    "=",
+    "\n"
+  ]
+}

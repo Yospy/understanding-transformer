@@ -1,0 +1,15 @@
+{
+  "best_val_loss": 0.8584643304347992,
+  "checkpoint_best_val_path": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2/checkpoint_best_val.pt",
+  "checkpoint_final_path": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2/checkpoint_final.pt",
+  "config_path": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2/config.json",
+  "device": "mps",
+  "elapsed_s": 240.56089254212566,
+  "final_exact_accuracy": 0.996,
+  "final_train_loss": 0.8637006878852844,
+  "final_val_loss": 0.8584643304347992,
+  "metrics_path": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2/metrics.csv",
+  "parameter_count": 1188736,
+  "run_dir": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2",
+  "samples_path": "runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2/samples.txt"
+}
