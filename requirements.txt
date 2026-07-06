@@ -1,0 +1,4 @@
+# Runtime requirements for the addition-transformer experiments.
+torch==2.12.0
+matplotlib==3.11.0
+numpy==2.4.6

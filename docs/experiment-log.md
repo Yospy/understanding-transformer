@@ -1,0 +1,20 @@
+# Experiment Log
+
+| Date | Stage | Run Dir | Device | Steps | Params | Final Train Loss | Final Val Loss | Exact Accuracy | Notes |
+|---|---|---:|---|---:|---:|---:|---:|---:|---|
+| 2026-06-17 | Stage 1 smoke | `runs/stage1/20260617-141012` | mps | 60 | 13,440 | 0.8930 | 0.8905 | 0.080 | Verified loss decreases and artifacts are written. Samples are not reliable yet at this short budget. |
+| 2026-06-17 | Stage 1 subagent verify | `runs/stage1/subagent-verify` | mps | 30 | 13,440 | 1.2710 | 1.2457 | 0.000 | Independent verification passed. Loss decreased; samples are still inaccurate at this budget. |
+| 2026-06-17 | Stage 1 default | `runs/stage1/20260617-141603` | mps | 300 | 13,440 | 0.5099 | 0.5382 | 0.640 | Default run learned many one-digit additions. Samples show remaining carry errors, so do not treat Stage 1 as solved for accuracy. |
+| 2026-06-17 | Stage 2 smoke | `runs/stage2/20260617-142727` | mps | 20 | 793,728 | 0.9335 | 0.9373 | 0.000 | Verifies Stage 2 defaults and `runs/stage2` output. Too short for quality comparison. |
+| 2026-06-17 | Stage 2 default | `runs/stage2/20260617-142931` | mps | 300 | 793,728 | 0.4291 | 0.4288 | 1.000 | First meaningful Stage 2 baseline. Beats Stage 1 at same step count and correctly handles sampled carry cases. |
+| 2026-06-17 | Stage 3 smoke | `runs/stage3/smoke-default` | mps | 20 | 793,728 | 1.8549 | 1.8415 | 0.000 | Verifies Stage 3 defaults: same architecture, 2-digit data, `runs/stage3` output. Too short for quality comparison. |
+| 2026-06-17 | Stage 3 baseline | `runs/stage3/digit2-baseline` | mps | 500 | 793,728 | 1.2569 | 1.2428 | 0.080 | Same architecture as Stage 2 but 2-digit data. Accuracy remains weak; use Stage 4 to separate training-budget vs capacity bottlenecks. |
+| 2026-06-18 | Stage 4 budget | `runs/stage4/digit2-budget-1500` | mps | 1,500 | 793,728 | 0.9119 | 0.9711 | 0.680 | Same model as Stage 3 with longer training. Big improvement; best exact accuracy reached 0.840 at step 1,250. |
+| 2026-06-18 | Stage 4 width | `runs/stage4/digit2-width192-1000` | mps | 1,000 | 1,780,416 | 1.2577 | 1.2743 | 0.120 | Width-only scaling underperformed the Stage 3 baseline on final val loss and did not solve 2-digit addition. |
+| 2026-06-18 | Stage 4 depth | `runs/stage4/digit2-depth6-1000` | mps | 1,000 | 1,188,736 | 0.9566 | 0.9743 | 0.840 | Current best Stage 4 direction. Best val loss reached 0.9326 at step 800; depth beats width clearly. |
+| 2026-06-18 | Stage 4 depth budget | `runs/stage4/digit2-depth6-1500` | mps | 1,500 | 1,188,736 | 0.8757 | 0.8777 | 0.990 | Current best run. Best exact accuracy reached 1.000 at step 1,000; saved samples still include one miss, so stronger evaluation is needed before Stage 5. |
+| 2026-06-18 | Stage 4 depth low LR | `runs/stage4/digit2-depth6-2000-lr1e-3` | mps | 2,000 | 1,188,736 | 0.8689 | 0.8604 | 0.988 | Current strongest final candidate. Uses 500 eval examples, lower val loss than depth6-1500, and saved samples are all correct. |
+| 2026-06-18 | Stage 4 larger model | `runs/stage4/digit2-256x6-1500-lr1e-3` | mps | 1,500 | 4,736,768 | 0.8847 | 0.9002 | 0.930 | Larger 4.7M model underperformed the 1.19M depth6-2000 candidate and still missed a saved sample. Do not promote. |
+| 2026-06-18 | Stage 4 checkpointed eval | `runs/stage4/digit2-depth6-2000-lr1e-3-ckpt2` | mps | 2,000 | 1,188,736 | 0.8637 | 0.8585 | 0.996 | Checkpointed final candidate. Exhaustive 2-digit eval: 9,978 / 10,000 correct, 0.9978 accuracy. |
+| 2026-06-18 | Stage 5 hard-case 25% | `runs/stage5/digit2-hardcase-lr5e-4` | mps | 3,000 | 1,188,736 | 0.8134 | 0.9064 | 0.992 | Do not promote. Best-val exhaustive eval regressed to 9,910 / 10,000. Final checkpoint reached 9,953 / 10,000, fixing the original 22 misses but introducing 47 new misses. |
+| 2026-06-18 | Stage 5 fixed reversed | `runs/stage5/digit2-fixed-reversed-answer-weighted` | mps | 2,000 | 1,188,736 | 0.2910 | 0.2914 | 1.000 | Strongest run. Uses `fixed_reversed` carry-local representation and `loss_prompt_weight=0.2`. Final checkpoint exhaustive eval: 10,000 / 10,000 correct. |
